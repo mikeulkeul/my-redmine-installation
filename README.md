@@ -1,6 +1,6 @@
-To test the final installation : redmine.mke.ovh
+My testing redmine instance : redmine.mke.ovh
 
-There is different view for different kind of people.
+There is different view for different kind of people. Credentials are :
 - issuer : issuer:password
 - stakeholder : stakeholder:password
 - developer : developer:password
@@ -47,18 +47,53 @@ Redmine is a very powerfull tool, however redmine developers are not designer an
 
 # Installation Cookbook on ubuntu server
 
-## note for ubuntu
+## Note for ubuntu
 - ubuntu package for redmine is very old. We will use Redmine 2.5
-- the main theme is based on minimap with some customization. Because the tool was supposed to be used by a wide range of people within the organization, I wanted a nice touch and feel because if it is dirty, no one will use it on a everyday basis.
+- the main theme is based on minimap with some customization. Because the tool was supposed to be used by a wide range of people within the organization, I wanted a nice touch and feel because if it looks dirty, not everyone  will use it on a everyday basis.
 
-## install
+## Install
+
+### Components
+- mysql
+- nginx
+- passenger
+
+### Cookbook
 
 
-## A note on plugin install and uninstall
-Plugin installation may alter you database. Uninstall a plugin would require to remove the table the plugin created. However, it did not work with some plugins I tried.
+## Redmine tips
+
+### Plugin install/uninstall
+
+Plugin installation may add table to the database. Uninstall a plugin would require to remove some tables + the plugin file. However, it did not work well with some wild plugins I tried.
 
 Backing up the database is important before installation something so that we can properly revert the platform if the plugin don't fit our needs.
 
+Installation :
+
+cd /var/data/redmine/plugins/
+git clone $PLUGIN_URL
+
+Uninstall :
 
 
+### Backup
 
+#### Database
+- Create backup
+```
+mysqldump -u redmine -p redmine > `date +%y_%m_%d`_redmine.backup.sql
+```
+- restore database from backup
+```
+mysql -u redmine -p redmine < ________redmine.backup.sql
+```
+#### Attachments
+- Create backup
+```
+rsync -a /path/to/redmine/files /path/to/backup/files
+```
+- Restore from backup
+```
+
+```
