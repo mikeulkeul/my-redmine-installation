@@ -33,7 +33,7 @@ In the proprietary world :
 
 # Redmine
 
-Redmine features that are nice to have :
+## Cool things about Redmine
 - can be extend with plugins
 - workflow tuning
 - a user can be part of different groups and those user or groups can have permissions per project.
@@ -41,6 +41,7 @@ Redmine features that are nice to have :
 - can create subproject
 - Agile and Kanban (with some plugins)
 
+## Redmine drawback
 Redmine main drawback compare to JIRA is a plugin might work well under a specific version of redmine but nothing work in the next version. Under redmine 2.5, the plugins I installed work perfectly and everything work smoothly without and lag or whatsoever.
 
 Redmine is a very powerfull tool, however redmine developers are not designer and the default theme don't look modern at all.
